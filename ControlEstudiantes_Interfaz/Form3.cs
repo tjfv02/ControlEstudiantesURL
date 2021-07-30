@@ -226,7 +226,6 @@ namespace ControlEstudiantes_Interfaz
                              where item.Carne == Convert.ToInt32(txtCarne.Text)
                              select item).AsParallel().ToList();
             }
-                
             dgvDatos.DataSource = resultado;
         }
 
