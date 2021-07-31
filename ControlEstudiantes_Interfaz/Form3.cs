@@ -16,6 +16,7 @@ namespace ControlEstudiantes_Interfaz
     public partial class Form3 : Form
     {
         List<Alumnos> ListaAlumnos = new List<Alumnos>(); // Lista de Alumnos (Datos de excel)
+        List<Alumnos> ListaPresencial = new List<Alumnos>(); // Lista de los Posibles contagios
         int posicion;
         static string Ruta;
 
@@ -187,7 +188,68 @@ namespace ControlEstudiantes_Interfaz
         // busqueda Contagios 
         private void button4_Click(object sender, EventArgs e)
         {
+            Alumnos Contagiado = new Alumnos();
+            var ListaGeneral = ListaAlumnos;
 
+            var ListaDePosiblescontagios = new List<Alumnos>();
+
+
+            foreach (DataGridViewRow Fila in dgvDatos.Rows)
+            {
+                //3
+                if (Fila.Cells[3].Value.ToString().Trim().ToLower() == "presencial")
+                {
+                    Contagiado.Carne = Convert.ToInt32(Fila.Cells[0].Value.ToString());
+                    Contagiado.Carrera = Fila.Cells[1].Value.ToString();
+                    Contagiado.Curso = Fila.Cells[2].Value.ToString();
+                    Contagiado.Modalidad = Fila.Cells[3].Value.ToString();
+                    Contagiado.Seccion = Convert.ToInt32(Fila.Cells[4].Value.ToString());
+                    Contagiado.Grupo = Fila.Cells[5].Value.ToString();
+
+                    ListaPresencial.Add(Contagiado);
+                }
+            }
+
+            if (ListaPresencial != null)
+            {
+                foreach (var clase in ListaPresencial)
+                {
+                    var posibleContagio = (from estudiante in ListaGeneral
+                                           where clase.Curso == estudiante.Curso && 
+                                            clase.Seccion == estudiante.Seccion && 
+                                            clase.Grupo == estudiante.Grupo
+                                            select estudiante
+                                           ).AsParallel().ToList();
+                    //micro,1,a
+                    //arqui,2,c
+                    foreach (var item in posibleContagio)
+                    {
+
+                        ListaDePosiblescontagios.Add(item);
+                    }
+
+
+                }
+
+                //// HUMILDAD
+                //foreach (var dummy in ListaPresencial)
+                //{
+                    
+                //    // Curso
+                //    ListaGeneral = (from item in ListaGeneral
+                //                       where dummy.Curso.ToLower().Contains(txtCurso.Text.ToLower().Trim())
+                //                       select item).AsParallel().ToList();
+                    
+                //    // Modalidad
+                //    ListaGeneral = (from item in ListaGeneral
+                //                       where item.Modalidad.ToLower().Contains(txtModalidad.Text.ToLower().Trim())
+                //                       select item).AsParallel().ToList();
+                    
+
+                //}
+            }
+                                               
+            dgvDatos.DataSource = ListaDePosiblescontagios;
         }
 
         private void BuscarDatos()

@@ -17,6 +17,7 @@ namespace ControlEstudiantes_Interfaz
         public Form2()
         {
             InitializeComponent();
+            btnCargar.Enabled = false;
         }
 
         public static string pathExcel = "";
@@ -39,7 +40,7 @@ namespace ControlEstudiantes_Interfaz
                 if (this.ofdCargarArchivo.ShowDialog() == DialogResult.OK)
                 {
                     this.txtRutaArchivo.Text = this.ofdCargarArchivo.FileName;
-                    
+                    btnCargar.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -58,6 +59,7 @@ namespace ControlEstudiantes_Interfaz
         private void button3_Click(object sender, EventArgs e)
         {
             pathExcel = this.ofdCargarArchivo.FileName;
+            
             this.Close();
         }
 

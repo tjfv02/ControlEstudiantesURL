@@ -16,6 +16,7 @@ namespace ControlEstudiantes_Interfaz
         public Form1()
         {
             InitializeComponent();
+            button3.Enabled = false;
             Diseño();
         }
 
@@ -84,6 +85,7 @@ namespace ControlEstudiantes_Interfaz
         {
             MostrarFormHijo(new Form2());
             OcultarSubMenu();
+            button3.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
