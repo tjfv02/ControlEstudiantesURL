@@ -161,7 +161,7 @@ namespace ControlEstudiantes_Interfaz
         {
             SLDocument sl = new SLDocument();
 
-            int iC = 1;
+            int iC = 2;
             foreach (DataGridViewColumn Columna in dgvDatos.Columns) //Extrae los nombres de las columnas
             {
                 sl.SetCellValue(1, iC, Columna.HeaderText.ToString());
@@ -171,12 +171,12 @@ namespace ControlEstudiantes_Interfaz
             int iR = 2;
             foreach (DataGridViewRow Fila in dgvDatos.Rows) // Extrae el valor de cada fila
             {
-                sl.SetCellValue(iR, 1, Fila.Cells[0].Value.ToString());
-                sl.SetCellValue(iR, 2, Fila.Cells[1].Value.ToString());
-                sl.SetCellValue(iR, 3, Fila.Cells[2].Value.ToString());
-                sl.SetCellValue(iR, 4, Fila.Cells[3].Value.ToString());
-                sl.SetCellValue(iR, 5, Fila.Cells[4].Value.ToString());
-                sl.SetCellValue(iR, 6, Fila.Cells[5].Value.ToString());
+                sl.SetCellValue(iR, 2, int.Parse(Fila.Cells[0].Value.ToString()));
+                sl.SetCellValue(iR, 3, Fila.Cells[1].Value.ToString());
+                sl.SetCellValue(iR, 4, Fila.Cells[2].Value.ToString());
+                sl.SetCellValue(iR, 5, Fila.Cells[3].Value.ToString());
+                sl.SetCellValue(iR, 6, int.Parse(Fila.Cells[4].Value.ToString()));
+                sl.SetCellValue(iR, 7, Fila.Cells[5].Value.ToString());
                 iR++;
             }
             //sl.Save();
@@ -191,7 +191,7 @@ namespace ControlEstudiantes_Interfaz
             Alumnos Contagiado = new Alumnos();
             var ListaGeneral = ListaAlumnos;
 
-            var ListaDePosiblescontagios = new List<Alumnos>();
+            var ListaDePosiblescontagios = new Dictionary<int, Alumnos>();
 
 
             foreach (DataGridViewRow Fila in dgvDatos.Rows)
@@ -224,8 +224,10 @@ namespace ControlEstudiantes_Interfaz
                     //arqui,2,c
                     foreach (var item in posibleContagio)
                     {
-
-                        ListaDePosiblescontagios.Add(item);
+                        if (!ListaDePosiblescontagios.TryGetValue(item.Carne, out Alumnos alumno))
+                        {
+                            ListaDePosiblescontagios.Add(item.Carne, item);
+                        }
                     }
 
 
@@ -249,7 +251,7 @@ namespace ControlEstudiantes_Interfaz
                 //}
             }
                                                
-            dgvDatos.DataSource = ListaDePosiblescontagios;
+            dgvDatos.DataSource = ListaDePosiblescontagios.Select(x => x.Value).ToList();
         }
 
         private void BuscarDatos()
