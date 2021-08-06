@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlEstudiantes_Interfaz", "ControlEstudiantes_Interfaz\ControlEstudiantes_Interfaz.csproj", "{2CA807D7-1C44-4F2B-A0B3-C27EA348862D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Control Posibles Contagios URL", "Control Posibles Contagios URL\Control Posibles Contagios URL.vdproj", "{F6273AF4-D016-4BA4-967D-FB476EEEAADE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{2CA807D7-1C44-4F2B-A0B3-C27EA348862D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CA807D7-1C44-4F2B-A0B3-C27EA348862D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CA807D7-1C44-4F2B-A0B3-C27EA348862D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6273AF4-D016-4BA4-967D-FB476EEEAADE}.Debug|Any CPU.ActiveCfg = Debug
+		{F6273AF4-D016-4BA4-967D-FB476EEEAADE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
