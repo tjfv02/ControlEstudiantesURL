@@ -9,6 +9,8 @@ namespace ControlEstudiantes_Interfaz.ViewModel
 {
     public class Alumnos
     {
+        [DisplayName("Marca Temporal")]
+        public DateTime Marca_Temporal { get; set; }
         [DisplayName("Carné")]
         public int Carne {get; set;}
         public string Carrera {get; set;}

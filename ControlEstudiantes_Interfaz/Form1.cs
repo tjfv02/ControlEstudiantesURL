@@ -49,6 +49,7 @@ namespace ControlEstudiantes_Interfaz
         private void btnInicio_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(PanelSubMenu);
+            
         }
 
         private Form FormActivo = null;

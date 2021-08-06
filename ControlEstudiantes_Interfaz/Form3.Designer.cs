@@ -191,8 +191,6 @@ namespace ControlEstudiantes_Interfaz
             // 
             // txtCarne
             // 
-            this.txtCarne.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCarne.Location = new System.Drawing.Point(99, 60);
             this.txtCarne.Name = "txtCarne";
             this.txtCarne.Size = new System.Drawing.Size(100, 20);
@@ -200,8 +198,6 @@ namespace ControlEstudiantes_Interfaz
             // 
             // txtCurso
             // 
-            this.txtCurso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCurso.Location = new System.Drawing.Point(99, 103);
             this.txtCurso.Name = "txtCurso";
             this.txtCurso.Size = new System.Drawing.Size(248, 20);
@@ -209,8 +205,6 @@ namespace ControlEstudiantes_Interfaz
             // 
             // txtCarrera
             // 
-            this.txtCarrera.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCarrera.Location = new System.Drawing.Point(99, 142);
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(248, 20);
@@ -242,8 +236,6 @@ namespace ControlEstudiantes_Interfaz
             // 
             // txtModalidad
             // 
-            this.txtModalidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtModalidad.FormattingEnabled = true;
             this.txtModalidad.Items.AddRange(new object[] {
             "Presencial",
