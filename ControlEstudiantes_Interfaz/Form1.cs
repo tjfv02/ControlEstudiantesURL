@@ -91,10 +91,8 @@ namespace ControlEstudiantes_Interfaz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
             MostrarFormHijo(new Form3(Form2.pathExcel));
             //OcultarSubMenu();
-
         }
     }
 }

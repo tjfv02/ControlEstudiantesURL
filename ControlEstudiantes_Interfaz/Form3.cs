@@ -52,8 +52,7 @@ namespace ControlEstudiantes_Interfaz
         /* --- BUSCAR DATOS --- */
         private void button2_Click(object sender, EventArgs e)
         {
-            //dgvDatos.Focus();
-            BuscarDatos();
+                       BuscarDatos();
         }
 
         private void CargarDatos()
@@ -208,7 +207,6 @@ namespace ControlEstudiantes_Interfaz
 
             foreach (DataGridViewRow Fila in dgvDatos.Rows)
             {
-                //var temp = dgvDatos.
                 Alumnos Contagiado = new Alumnos();
                 if (Fila.Cells[4].Value.ToString().Trim().ToLower() == "presencial")
                 {
