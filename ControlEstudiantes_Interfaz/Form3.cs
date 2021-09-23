@@ -16,7 +16,7 @@ namespace ControlEstudiantes_Interfaz
     public partial class Form3 : Form
     {
         List<Alumnos> ListaAlumnos = new List<Alumnos>(); // Lista de Alumnos (Datos de excel)
-        List<Alumnos> ListaPresencial = new List<Alumnos>(); // Lista de los Posibles contagios
+        
         int posicion;
         static string Ruta;
 
@@ -202,22 +202,22 @@ namespace ControlEstudiantes_Interfaz
         // busqueda Contagios 
         private void button4_Click(object sender, EventArgs e)
         {
-            Alumnos Contagiado = new Alumnos();
             var ListaGeneral = ListaAlumnos;
-
+            var ListaPresencial = new List<Alumnos>(); // Lista de los Posibles contagios
             var ListaDePosiblescontagios = new Dictionary<int, Alumnos>();
-
 
             foreach (DataGridViewRow Fila in dgvDatos.Rows)
             {
-                if (Fila.Cells[3].Value.ToString().Trim().ToLower() == "presencial")
+                //var temp = dgvDatos.
+                Alumnos Contagiado = new Alumnos();
+                if (Fila.Cells[4].Value.ToString().Trim().ToLower() == "presencial")
                 {
-                    Contagiado.Carne = Convert.ToInt32(Fila.Cells[0].Value.ToString());
-                    Contagiado.Carrera = Fila.Cells[1].Value.ToString();
-                    Contagiado.Curso = Fila.Cells[2].Value.ToString();
-                    Contagiado.Modalidad = Fila.Cells[3].Value.ToString();
-                    Contagiado.Seccion = Convert.ToInt32(Fila.Cells[4].Value.ToString());
-                    Contagiado.Grupo = Fila.Cells[5].Value.ToString();
+                    Contagiado.Carne = Convert.ToInt32(Fila.Cells[1].Value.ToString());
+                    Contagiado.Carrera = Fila.Cells[2].Value.ToString();
+                    Contagiado.Curso = Fila.Cells[3].Value.ToString();
+                    Contagiado.Modalidad = Fila.Cells[4].Value.ToString();
+                    Contagiado.Seccion = Convert.ToInt32(Fila.Cells[5].Value.ToString());
+                    Contagiado.Grupo = Fila.Cells[6].Value.ToString();
 
                     ListaPresencial.Add(Contagiado);
                 }
@@ -245,7 +245,7 @@ namespace ControlEstudiantes_Interfaz
 
                 }
             }
-                                               
+                                              
             dgvDatos.DataSource = ListaDePosiblescontagios.Select(x => x.Value).ToList();
         }
 

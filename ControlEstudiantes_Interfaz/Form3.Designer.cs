@@ -257,7 +257,7 @@ namespace ControlEstudiantes_Interfaz
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(130, 45);
             this.button6.TabIndex = 18;
-            this.button6.Text = "Guardar como...";
+            this.button6.Text = "Guardar una copia";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
